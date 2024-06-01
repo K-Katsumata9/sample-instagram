@@ -1,0 +1,41 @@
+.profile-wrap {
+  margin: 40px 0;
+}
+
+.round-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.edit-profile-btn {
+  margin: 15px -10px 10px 0px;
+  font-weight: bold;
+  height: 27px;
+  width: 200px;
+  line-height: 26px;
+  padding: 0 20px;
+  border-color: #dbdbdb;
+  font-size: 15px;
+}
+
+.setting {
+  background-image: url("parts4.png");
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  margin: 10px 0 0 0;
+  background-size: 22px !important;
+  border: none;
+  cursor: pointer;
+}
+
+.row.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin: 0 -10px 0 0; /* 必要に応じて調整 */
+}

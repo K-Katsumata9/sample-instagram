@@ -1,0 +1,7 @@
+<%= turbo_stream.update "like-icon-post-#{@post.id}" do %>
+  <%= link_to "いいね", post_likes_path(@post), data: { turbo_method: :post }, remote: true, class: "love hide-text" %>
+<% end %>
+
+<%= turbo_stream.update "like-text-post-#{@post.id}" do %>
+  <%= render partial: "posts/like_text", locals: { likes: @post.likes } %>
+<% end %>

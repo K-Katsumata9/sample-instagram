@@ -1,0 +1,7 @@
+<%= turbo_stream.update "like-icon-post-#{@post.id}" do %>
+  <%= link_to "いいねを取り消す", post_like_path(@post.id, @like), data: { turbo_method: :delete }, remote: true, class: "loved hide-text" %>
+<% end %>
+
+<%= turbo_stream.update "like-text-post-#{@post.id}" do %>
+  <%= render partial: "posts/like_text", locals: { likes: @post.likes } %>
+<% end %>

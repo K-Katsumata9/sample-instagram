@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
+
     before_action :authenticate_user!
 
     def index
         @posts = Post.limit(10).order('created_at DESC')
+    end
+
+    def show 
+        @post = Post.find(params[:id])
     end
 
     def new
@@ -22,8 +27,20 @@ class PostsController < ApplicationController
         end
     end
 
+    def destroy
+        @post = Post.find(params[:id])
+        if @post.user == current_user
+          flash[:notice] = "投稿が削除されました" if @post.destroy
+        else
+          flash[:alert] = "投稿の削除に失敗しました"
+        end
+        redirect_to root_path
+    end
+
+
     private
         def post_params
             params.require(:post).permit(:caption, photos_attributes:[:image])
         end
+
 end

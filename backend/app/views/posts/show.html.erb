@@ -30,6 +30,9 @@
           </div>
           <div class="comment-post-id">
             <div class="m-2">
+              <div id="comment-post-<%= @post.id.to_s %>">
+                <%= render 'comment_list', post: @post %>
+              </div>
             </div>
           </div>
         </div>
@@ -49,6 +52,9 @@
         </div>
         <div class="post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div>
         <hr>
+        <%= turbo_frame_tag "comment-form-post-#{@post.id.to_s}" do %>
+            <%= render 'comments/comment_form', { post: @post } %>
+        <% end %>
       </div>
     </div>
   </div>
